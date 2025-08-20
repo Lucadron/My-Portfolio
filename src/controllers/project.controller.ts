@@ -3,6 +3,7 @@ import { createProjectSchema, updateProjectSchema } from '../validators/project.
 import { createProject, getAllProjects, getOneProject, updateProject, deleteProject } from '../services/project.service';
 import { deleteModel } from 'mongoose';
 import id from 'zod/v4/locales/id.cjs';
+import { incrementProjectViews } from '../services/stats.service';
 
 // Yeni proje oluştur
 export const handleCreateProject = async (req: Request, res: Response) => {
@@ -44,6 +45,8 @@ export const handleGetOneProject = async (req: Request, res: Response) => {
         if(!project) {
             return res.status(404).json({ error: 'Project not found' });
         }
+
+        await incrementProjectViews(id); //Sayacı artır
 
         return res.status(200).json(project);
     } catch (error) {

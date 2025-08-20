@@ -6,18 +6,18 @@ import { protectRoute } from '../middlewares/auth.middleware';
 const router = express.Router();
 
 // Yeni proje oluşturma
-router.post('/projects', protectRoute, handleCreateProject);
+router.post('/', protectRoute, handleCreateProject);
 
 // Projeleri listele
-router.get('/projects', handleGetAllProjects);
+router.get('/', handleGetAllProjects);
 
 // Id ile proje listele
-router.get('/projects/:id', handleGetOneProject);
+router.get('/:id', handleGetOneProject);
 
 // Proje güncelleme
-router.put('/projects/:id', protectRoute, handleUpdateProject);
+router.put('/:id', protectRoute, handleUpdateProject);
 
 //Proje silme
-router.delete('/projects/:id', protectRoute, handleDeleteProject);
+router.delete('/:id', protectRoute, handleDeleteProject);
 
 export default router;

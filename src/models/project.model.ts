@@ -10,6 +10,7 @@ export interface IProject extends Document {
     technologies: string[];
     category: "Backend" | "Frontend" | "FullStack" | "ML" | "UI/UX" | "Other";
     highlighted?: boolean;
+    viewCount: number;
 
 }
 
@@ -28,6 +29,7 @@ const ProjectSchema: Schema = new Schema(
             required: true,
         },
         highlighted: { type: Boolean, default: false },
+        viewCount: { type: Number, default: 0 }
     },
     { timestamps: true }
 );

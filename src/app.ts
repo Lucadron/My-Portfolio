@@ -7,6 +7,9 @@ import authRouter from './routes/auth.route';
 import aboutRouter from './routes/about.route';
 import cvRouter from './routes/cv.route';
 import skillRouter from './routes/skills.route';
+import hobbyRouter from './routes/hobby.route';
+import statsRouter from './routes/stats.route';
+import contactRouter from './routes/contact.route';
 
 // Bir Express uygulaması başlatıyoruz
 const app = express();
@@ -23,6 +26,9 @@ app.use('/api/overlord', authRouter);
 app.use('/api/about', aboutRouter);
 app.use('/api/cv', cvRouter);
 app.use('/api/skills', skillRouter);
+app.use('/api/hobbies', hobbyRouter);
+app.use('/api/stats', statsRouter);
+app.use('/api/contact', contactRouter);
 
 // Test amaçlı bir GET endpoint tanımlıyoruz
 // Tarayıcıdan http://localhost:8008/ yazıldığında bu çalışır
